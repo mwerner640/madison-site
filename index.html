@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <title>SELECTED WORKS</title>
+
+  </head>
+  <body>
+
+    <header class="navbar"></header>
+
+    <script defer>
+
+      (async function loadHeader() {
+
+        const resp = await fetch("./header.html");
+
+        const text = await resp.text();
+
+        document.querySelector('header.navbar').innerHTML = text;
+      })();
+
+    </script>
+
+  </body>
+</html>
+

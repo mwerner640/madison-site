@@ -1,0 +1,74 @@
+    <style>
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
+
+        .navbar {
+            height: 15vh;
+            background-color: black;
+        }
+
+        .navbar nav {
+            height: 100%;
+        }
+
+
+        .navbar ul {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .navbar nav ul:first-child {
+          align-self: flex-end;
+        }
+
+        .navbar nav li {
+            list-style-type: none;
+            font-size: 1.2rem;
+        }
+
+        .navbar nav a:hover {
+            color: #bc912c;
+        }
+
+        #name {
+            font-size: 2.5rem;
+            width: 50%; /* so that the other items go more to the right */
+        }
+
+        @media (max-width: 800px) {
+          .navbar {
+            height: 30vh;
+          }
+
+
+          .navbar ul {
+            flex-direction: column;
+          }
+
+          #name {
+            width: auto;
+          }
+
+    </style>
+
+    <nav>
+        <ul>
+            <li id="name"><a href="">Madison Werner</a></li>
+            <li><a href="#">SELECTED WORKS</a></li>
+            <li><a href="#">EXHIBITIONS</a></li>
+        </ul>
+    </nav>
+
