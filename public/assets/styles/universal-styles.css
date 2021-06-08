@@ -1,0 +1,19 @@
+
+body {
+    background-color: black;
+    color: floralwhite;
+}
+
+.warning {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+

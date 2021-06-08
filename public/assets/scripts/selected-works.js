@@ -1,14 +1,18 @@
 
 // used multiple times, so save a completely insignificant amount of time by getting them only once
-const leftArrowContainerNode = document.querySelector('.arrow-left-container');
-const rightArrowContainerNode = document.querySelector('.arrow-right-container');
-const curImgNode = document.querySelector('#cur-img');
+const leftArrowContainerNode = document.querySelector('.arrow-left');
+const rightArrowContainerNode = document.querySelector('.arrow-right');
 const imgContainerNode = document.querySelector('#img-container');
+const curImgNode = imgContainerNode.querySelector('#cur-img');
+const curImgInfoNode = document.querySelector('#cur-img-info');
 
 const slideInfo = {
     images: [],
     curIdx: 0,
     cached: 0,
+    get curImg() {
+        return this.images[this.curIdx];
+    },
     atStart: function() {
         return this.curIdx == 0;
     },
@@ -53,7 +57,11 @@ function lazyLoad() {
 function loadSlide() {
 
     curImgNode.src =
-        `./assets/images/${slideInfo.images[slideInfo.curIdx].src}`;
+        `./assets/images/${slideInfo.curImg.src}`;
+
+    const {title, year, dimensions, medium} = slideInfo.curImg;
+
+    curImgInfoNode.textContent = `${title} (${year}) ${dimensions}: ${medium}`;
 
     lazyLoad();
 }
