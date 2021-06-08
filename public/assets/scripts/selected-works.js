@@ -7,9 +7,8 @@ const curImgNode = imgContainerNode.querySelector('#cur-img');
 const curImgInfoNode = document.querySelector('#cur-img-info');
 
 const slideInfo = {
-    images: [],
+    images: [], // note: besides for keys in images.json, there's a dynicamically added key, `cached`
     curIdx: 0,
-    cached: 0,
     get curImg() {
         return this.images[this.curIdx];
     },
@@ -33,22 +32,38 @@ const slideInfo = {
     loadSlide();
 })();
 
-function lazyLoad() {
+/**
+ * @param direction - whether to lazy load next images (positive num),
+ * or previous images (negative num)
+ */
+function lazyLoad(direction = 1) {
 
+    const savedIdx = slideInfo.curIdx;
     const numberOfImagesToPreload = 3; // magic number
 
-    // math...
-    const imgsToPreload = Math.min(slideInfo.images.length, slideInfo.curIdx + numberOfImagesToPreload);
-    for (let i = slideInfo.cached; i < imgsToPreload; i++) {
+    let i = 0;
 
-        const img = new Image();
-        img.src = `./assets/images/${slideInfo.images[i].src}`;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.classList.add('hidden');
-        imgContainerNode.appendChild(img);
-        slideInfo.cached = i;
+    while (i < numberOfImagesToPreload) {
+        addLazyImg(slideInfo.curImg);
+        direction > 0 ? slideInfo.next() : slideInfo.previous();
+        i++;
     }
+
+    slideInfo.curIdx = savedIdx;
+}
+
+function addLazyImg(imgInfo) {
+
+    if (imgInfo.cached) return;
+
+    const img = new Image();
+    img.src = `./assets/images/${imgInfo.src}`;
+    console.log(img.src);
+    imgInfo.cached = true;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.classList.add('hidden');
+    imgContainerNode.appendChild(img);
 }
 
 function loadSlide() {
@@ -59,16 +74,16 @@ function loadSlide() {
     const {title, year, dimensions, medium} = slideInfo.curImg;
 
     curImgInfoNode.textContent = `${title} (${year}) ${dimensions}: ${medium}`;
-
-    lazyLoad();
 }
 
 rightArrowContainerNode.addEventListener('click', () => {
     slideInfo.next();
     loadSlide();
+    lazyLoad(1);
 });
 
 leftArrowContainerNode.addEventListener('click', () => {
     slideInfo.previous();
     loadSlide();
+    lazyLoad(-1);
 });
