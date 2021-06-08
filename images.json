@@ -4,105 +4,105 @@
             "src": "adaptability.png",
             "title": "Adaptability",
             "dimensions": "8.5 X 11 inches",
-            "type": "mixed media on cardboard",
+            "medium": "mixed media on cardboard",
             "year": 2016
         },
         {
             "src": "optimism.png",
             "title": "Optimism",
             "dimensions": "30 X 48 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2019
         },
         {
             "src": "lightbulbs-2-3.jpg",
             "title": "Lightbulbs (2/3)",
             "dimensions": "16 X 12 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2021
         },
         {
             "src": "mediocre-tree-bundt.png",
             "title": "Mediocre Tree Identification Skills Will Not Improve Your Bundt Cake Recipe.",
             "dimensions": "9 X 12 inches",
-            "type": "mixed media on cardboard",
+            "medium": "mixed media on cardboard",
             "year": 2017
         },
         {
             "src": "stairwell-in-memory.png",
             "title": "Stairwell in Memory",
             "dimensions": "10 X 18 inches",
-            "type": "mixed media on cardboard",
+            "medium": "mixed media on cardboard",
             "year": 2015
         },
         {
             "src": "skaterbio.jpg",
             "title": "SkaterBoi",
             "dimensions": "30 X 48 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2020
         },
         {
             "src": "refuge.png",
             "title": "Refuge",
             "dimensions": "9 X 14 inches",
-            "type": "mixed media on paper",
+            "medium": "mixed media on paper",
             "year": 2016
         },
         {
             "src": "guitars-1-3.jpg",
             "title": "Guitars (1/3)",
             "dimensions": "12 X 16 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2021
         },
         {
             "src": "self-portrait-52.png",
             "title": "Self Portrait 52",
             "dimensions": "9 X 14 inches",
-            "type": "mixed media on paper",
+            "medium": "mixed media on paper",
             "year": 2016
         },
         {
             "src": "guitars-2-3.jpg",
             "title": "Guitars (2/3)",
             "dimensions": "16 X 12 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2021
         },
         {
             "src": ":).jpg",
             "title": "Guitars (3/3)",
             "dimensions": "16 X 12 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2021
         },
         {
             "src": "original-glaubirne.png",
             "title": "Original Glaubirne",
             "dimensions": "8.5 X 11 inches",
-            "type": "mixed media on paper",
+            "medium": "mixed media on paper",
             "year": 2016
         },
         {
             "src": "lightbulbs-1-3.jpg",
             "title": "Lightbulbs (1/3)",
             "dimensions": "16 X 12 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2021
         },
         {
             "src": "legs.png",
             "title": "Legs",
             "dimensions": "15 X 15 inches",
-            "type": "mixed media on paper",
+            "medium": "mixed media on paper",
             "year": 2016
         },
         {
             "src": "lightbulbs-3-3.jpg",
             "title": "Lightbulbs (3/3)",
             "dimensions": "16 X 12 inches",
-            "type": "acrylic on canvas",
+            "medium": "acrylic on canvas",
             "year": 2021
         }
     ]

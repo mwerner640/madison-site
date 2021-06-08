@@ -12,7 +12,7 @@
         "src": "",
         "title": "",
         "dimensions": "",
-        "type": "",
+        "medium": "",
         "year":
     }
 

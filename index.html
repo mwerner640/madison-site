@@ -1,102 +1,100 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="favicon.ico">
-    <title>SELECTED WORKS</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <title>SELECTED WORKS</title>
 
-    <style>
+  <script src="./assets/scripts/universal-scripts.js" defer></script>
+  <script src="./assets/scripts/selected-works.js" async></script>
+  <style>
 
+    .warning {
+      color: red;
+    }
 
-      #slideshow {
-        background-color: black;
-        padding: 1vh;
-        display: flex;
-        align-items: center;
-      }
+    .hidden {
+      display: none;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+
+    #slideshow {
+      background-color: black;
+      padding: 1vh;
+      display: flex;
+      align-items: center;
+    }
+
+    #img-container {
+      margin: 0 auto;
+    }
+
+    #cur-img {
+      width: 40vw;
+      height: 50vw;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .left-arrow-container {
+      position: relative;
+      left: 20%;
+    }
+    .right-arrow-container {
+      position: relative;
+      right: 20%;
+    }
+
+    .arrow {
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 1vh;
+      cursor: pointer;
+    }
+
+    .right {
+      transform: rotate(-45deg);
+    }
+
+    .left {
+      transform: rotate(135deg);
+    }
+
+    @media (max-width: 800px) {
 
       #slideshow img {
-        width: 40vw;
-        display: block;
-        margin: 0 auto;
+        width: 60vw;
+        height: 50vw;
       }
+    }
 
-      .left-arrow-container {
-        position: relative;
-        left: 20%;
-      }
-      .right-arrow-container {
-        position: relative;
-        right: 20%;
-      }
+  </style>
+</head>
+<body>
 
-      .arrow {
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 1vh;
-      }
-
-      .right {
-        transform: rotate(-45deg);
-      }
-
-      .left {
-        transform: rotate(135deg);
-      }
-
-
-      @media (max-width: 800px) {
-
-        #slideshow img {
-          width: 60vw;
-        }
-
-    </style>
-  </head>
-  <body>
-
-    <header class="navbar"></header>
+  <header class="navbar"></header>
 
     <article id="slideshow">
-      <div class="left-arrow-container">
+
+      <div class="left-arrow-container invisible">
         <i class="arrow left"></i>
       </div>
 
-      <img id="slide-img" src="mine.jpg" />
+      <div id="img-container">
+        <img id="cur-img" src="" />
+      </div>
 
       <div class="right-arrow-container">
         <i class="arrow right"></i>
       </div>
+
     </article>
-
-    <script defer>
-
-      (async function loadHeader() {
-
-        const resp = await fetch("./header.html");
-
-        const text = await resp.text();
-
-        document.querySelector('header.navbar').innerHTML = text;
-
-
-        document.querySelector('#menu-icon').addEventListener('click', () => {
-
-            document.querySelector('.navbar').classList.toggle('active');
-            console.log('hi')
-        });
-
-      })();
-
-      document.querySelector('.right-arrow-container').addEventListener('click', () => {
-
-
-      });
-
-    </script>
 
   </body>
 </html>
