@@ -1,7 +1,7 @@
 
 // used multiple times, so save a completely insignificant amount of time by getting them only once
-const leftArrowContainerNode = document.querySelector('.left-arrow-container');
-const rightArrowContainerNode = document.querySelector('.right-arrow-container');
+const leftArrowContainerNode = document.querySelector('.arrow-left-container');
+const rightArrowContainerNode = document.querySelector('.arrow-right-container');
 const curImgNode = document.querySelector('#cur-img');
 const imgContainerNode = document.querySelector('#img-container');
 
@@ -16,10 +16,10 @@ const slideInfo = {
         return this.curIdx == this.images.length - 1 || this.images.length < 2;
     },
     next: function() {
-        this.curIdx = (this.curIdx == this.images.length - 1) ? this.curIdx : this.curIdx + 1;
+        this.curIdx = (this.atEnd()) ? this.curIdx : this.curIdx + 1;
     },
     previous: function() {
-        this.curIdx = (this.curIdx == 0) ? 0 : this.curIdx - 1;
+        this.curIdx = (this.atStart()) ? 0 : this.curIdx - 1;
     }
 };
 
@@ -34,7 +34,10 @@ const slideInfo = {
 
 function lazyLoad() {
 
-    const imgsToPreload = Math.min(slideInfo.images.length, slideInfo.curIdx + 3);
+    const numberOfImagesToPreload = 3; // magic number
+
+    // math...
+    const imgsToPreload = Math.min(slideInfo.images.length, slideInfo.curIdx + numberOfImagesToPreload);
     for (let i = slideInfo.cached; i < imgsToPreload; i++) {
 
         const img = new Image();
