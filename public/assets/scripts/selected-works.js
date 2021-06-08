@@ -13,17 +13,14 @@ const slideInfo = {
     get curImg() {
         return this.images[this.curIdx];
     },
-    atStart: function() {
-        return this.curIdx == 0;
-    },
-    atEnd: function() {
-        return this.curIdx == this.images.length - 1 || this.images.length < 2;
-    },
     next: function() {
-        this.curIdx = (this.atEnd()) ? this.curIdx : this.curIdx + 1;
+        // tried with modulo operator, but basic math fails me
+        this.curIdx++;
+        this.curIdx = (this.curIdx >= this.images.length) ? 0 : this.curIdx;
     },
     previous: function() {
-        this.curIdx = (this.atStart()) ? 0 : this.curIdx - 1;
+        this.curIdx--;
+        this.curIdx = (this.curIdx < 0) ? this.images.length - 1 : this.curIdx;
     }
 };
 
@@ -69,26 +66,9 @@ function loadSlide() {
 rightArrowContainerNode.addEventListener('click', () => {
     slideInfo.next();
     loadSlide();
-    controlArrowVisibility();
-
 });
 
 leftArrowContainerNode.addEventListener('click', () => {
     slideInfo.previous();
     loadSlide();
-    controlArrowVisibility();
 });
-
-function controlArrowVisibility() {
-
-    if (slideInfo.atEnd()) {
-        rightArrowContainerNode.classList.add('invisible');
-    } else {
-        rightArrowContainerNode.classList.remove('invisible');
-    }
-    if (slideInfo.atStart()) {
-        leftArrowContainerNode.classList.add('invisible');
-    } else {
-        leftArrowContainerNode.classList.remove('invisible');
-    }
-}
