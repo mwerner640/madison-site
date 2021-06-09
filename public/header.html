@@ -11,14 +11,16 @@
         }
 
         .navbar nav {
-            height: 100%;
+            height: 80%;
+            margin: 0;
+            padding: 1%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.9fr auto 3%;
+            align-items: center;
         }
 
-        .navbar ul {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            width: 100%;
+        .nav-sublinks {
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -28,7 +30,7 @@
           align-self: flex-end;
         }
 
-        .navbar nav li {
+        .navbar nav li, .nav-sublinks {
             list-style-type: none;
             font-size: 1.2rem;
         }
@@ -39,15 +41,14 @@
 
         #name {
             font-size: 2.5rem;
-            width: 50%; /* so that the other items go more to the right */
         }
-
 
         #menu-icon {
             color: white;
             border: 1px solid white;
             padding: 2px;
             margin: 0;
+            width: 20px;
             display: none;
         }
 
@@ -58,15 +59,13 @@
             margin: 3px 0;
         }
 
+        #nav-small-placeholder {
+            background-color: inherit;
+            position: relative;
+            z-index: 0;
+        }
+
         @media (max-width: 800px) {
-
-            .navbar.active {
-                height: 30vh;
-            }
-
-            .navbar.active ul {
-                flex-direction: column;
-            }
 
             #menu-icon {
                 display: initial;
@@ -76,16 +75,19 @@
                 width: auto;
             }
 
-            .navbar li:not(#name) {
+            .nav-sublinks {
+                align-items: flex-start;
+                flex-direction: column;
+                position: relative;
+                z-index: 2;
                 display: none;
             }
 
-            .navbar li:not(#name) {
-                display: none;
+            .sublink {
+                padding: 1rem;
             }
 
-
-            .navbar.active li:not(#name) {
+            #nav-small-placeholder .nav-sublinks {
                 display: initial;
             }
         }
@@ -93,14 +95,18 @@
     </style>
 
     <nav>
-        <ul>
-            <li id="name"><a href="">Madison Werner</a></li>
-            <div id="menu-icon">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <li><a href="/">SELECTED WORKS</a></li>
-            <li><a href="/EXHIBITIONS/">EXHIBITIONS</a></li>
+        <div id="name">
+            <a href="">Madison Werner</a>
+
+        </div>
+        <div id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-sublinks">
+            <li class="sublink"><a href="/">SELECTED WORKS</a></li>
+            <li class="sublink"><a href="/EXHIBITIONS/">EXHIBITIONS</a></li>
         </ul>
     </nav>
+    <div id="nav-small-placeholder" class="hidden"></div>
