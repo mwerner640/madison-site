@@ -59,10 +59,10 @@ function addLazyImg(imgInfo) {
 
     const img = new Image();
     img.src = `./assets/images/${imgInfo.src}`;
-    console.log(img.src);
     imgInfo.cached = true;
     img.loading = 'lazy';
     img.decoding = 'async';
+    img.importance = 'low';
     img.classList.add('hidden');
     imgContainerNode.appendChild(img);
 }
@@ -73,8 +73,9 @@ function loadSlide() {
         `./assets/images/${slideInfo.curImg.src}`;
 
     const {title, year, dimensions, medium} = slideInfo.curImg;
-
-    curImgInfoNode.innerHTML = `<div>${title} (${year})</div><div>${dimensions}</div><div>${medium}</div>`;
+    const curImgInfo = `<div>${title} (${year})</div><div>${dimensions}</div><div>${medium}</div>`;
+    curImgNode.alt = `${title} (${year}) ${dimensions}: ${medium}`;
+    curImgInfoNode.innerHTML = curImgInfo;
 }
 
 rightArrowContainerNode.addEventListener('click', () => {
