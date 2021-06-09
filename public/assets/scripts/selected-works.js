@@ -30,6 +30,7 @@ const slideInfo = {
     slideInfo.images = json.images;
 
     loadSlide();
+    lazyLoad(1);
 })();
 
 /**
