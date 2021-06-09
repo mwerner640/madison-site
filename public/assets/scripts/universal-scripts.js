@@ -13,11 +13,16 @@
     const navSublinksNode = document.querySelector('.nav-sublinks');
     navSmallPlaceholderNode.appendChild(navSublinksNode.cloneNode(true));
 
-    document.querySelector('#menu-icon').addEventListener('click', () => {
+    markCurrentPageLink();
 
+    document.querySelector('#menu-icon').addEventListener('click', () => {
         navSmallPlaceholderNode.classList.toggle('hidden');
-        document.querySelector('.navbar').classList.toggle('active');
     });
 
 })();
 
+function markCurrentPageLink() {
+
+    const curLinkNodes = document.querySelectorAll(`a[href="${window.location.pathname}"]`);
+    curLinkNodes.forEach(link => link.classList.add('active'));
+}

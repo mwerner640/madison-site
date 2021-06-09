@@ -73,7 +73,7 @@ function loadSlide() {
 
     const {title, year, dimensions, medium} = slideInfo.curImg;
 
-    curImgInfoNode.textContent = `${title} (${year}) ${dimensions}: ${medium}`;
+    curImgInfoNode.innerHTML = `<div>${title} (${year})</div><div>${dimensions}</div><div>${medium}</div>`;
 }
 
 rightArrowContainerNode.addEventListener('click', () => {
