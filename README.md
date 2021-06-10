@@ -2,7 +2,7 @@
 + `cp ./public/* <your_site_root>`
 + Make sure the site has proper permissions...
     + `chmod -R a+r ./*`
-    + `chmod -R a+x assets assets/images assets/scripts assets/styles EXHIBITIONS/`
+    + `chmod a+x assets assets/images assets/scripts assets/styles EXHIBITIONS/`
 
 #### Uploading
 + Place image in `assets/images/`
