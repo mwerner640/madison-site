@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="favicon.ico">
+  <meta name="description" content="Art Gallery">
+
   <title>SELECTED WORKS</title>
 
-  <link href="./assets/styles/universal-styles.css" rel="stylesheet">
+  <link rel="preload" as="style" href="./assets/styles/universal-styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- <link href="./assets/styles/universal-styles.css" rel="stylesheet"> -->
   <script src="./assets/scripts/universal-scripts.js" defer></script>
 
   <link rel="preload" href="/images.json" as="fetch" crossorigin>
@@ -64,14 +66,6 @@
       transform: rotate(135deg);
     }
 
-    @media (max-width: 800px) {
-
-      .arrow {
-        border-width: 0 2px 2px 0;
-        padding: 0.5vh;
-      }
-    }
-
   </style>
 </head>
 <body>
@@ -82,13 +76,13 @@
 
     <main id="slideshow">
 
-      <i class="arrow arrow-left"></i>
+      <i class="arrow arrow-left" role="button" aria-label="Previous slide" tabindex="0"></i>
 
-      <div id="img-container">
+      <div aria-live="polite" id="img-container">
         <img id="cur-img" src="" alt="" loading="eager" decoding="sync" importance="high" />
       </div>
 
-      <i class="arrow arrow-right"></i>
+      <i class="arrow arrow-right" role="button" aria-label="Next slide" tabindex="0"></i>
 
     </main>
 
